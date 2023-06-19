@@ -67,11 +67,11 @@
     <span id="date1"></span>
     <p>Dear <strong id="name"></strong></p>
     <p>On behalf of RIO CASA, we acknowledge the receipt of your advance payment for our services in the amount of
-        <strong id="amount"></strong> INR.
+        <strong id="amount"></strong>.
     </p>
     <p>Our office duly received the said payment on <span id="date2"></span>. Your reference number is <strong
             id="ref"></strong>. Please keep this number because you will need it in case you want to dispute or question
-        certain invoices. </p>
+        certain invoices. Kindly pay remaining amount of <strong id="balamt"></strong> at the time of check in. </p>
          
     <p>We appreciate your prompt payment, and we hope to serve you again.</p>
     <p>Regards,</p>
@@ -83,12 +83,14 @@
         const urlParams = new URLSearchParams(window.location.search);
         const name = urlParams.get('name');
         const amount = urlParams.get('amount');
+        const rem_amount = urlParams.get('balance');
         const referenceNumber = urlParams.get('referenceNumber');
 
         // Update the content with the form data
-        document.getElementById('amount').textContent = amount;
+        document.getElementById('amount').textContent = '₹' +amount;
         document.getElementById('name').textContent = name;
         document.getElementById('ref').textContent = referenceNumber;
+        document.getElementById('balamt').textContent = '₹' +rem_amount;
         // Today
         const today = new Date();
 
