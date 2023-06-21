@@ -30,31 +30,32 @@
       <h2 class="text-headline">Rio Casa</h2>
       <h3 class="text-subheadline">Wayanad</h2>
     </div>
-    <form action="rio_casa.html" method="get">
+    <form action="https://script.google.com/macros/s/AKfycbwgOWQcxVoKAEg30WLEjhQn_Xnnyo-wp6EzJL2X2vCJJLCAUWOccAJ8Tv-kfhBLiO4nBg/exec" method="get">
+      <input type="hidden" id="today" name="date">
       <span>
         <label for="name" class="text-small-uppercase">Name</label>
-        <input class="text-body" id="name" name="name" type="text" required>
+        <input class="text-body" id="name" name="Name" type="text" required>
       </span>
       <span>
         <label for="name" class="text-small-uppercase">Contact</label>
-        <input class="text-body" id="contact" name="contact" type="text" required>
+        <input class="text-body" id="contact" name="Contact" type="text" required>
       </span>
       <span>
         <label for="amount" class="text-small-uppercase">Advance</label>
-        <input class="text-body" id="amount" name="amount" type="text" required>
+        <input class="text-body" id="amount" name="Advance" type="text" required>
       </span>
       <span>
         <label for="balance" class="text-small-uppercase">Balance</label>
-        <input class="text-body" id="balance" name="balance" type="text" required>
+        <input class="text-body" id="balance" name="Balance" type="text" required>
       </span>
       <div class="dates">
         <span class="date">
           <label for="balance" class="text-small-uppercase">Check In</label>
-          <input class="text-body" id="checkin" name="checkin" type="date" required>
+          <input class="text-body" id="checkin" name="Check in" type="date" required>
         </span>
         <span class="date">
           <label for="balance" class="text-small-uppercase">Check Out</label>
-          <input class="text-body" id="checkout" name="checkout" type="date" required>
+          <input class="text-body" id="checkout" name="Check out" type="date" required>
         </span>
       </div>
       <!-- <input type="hidden" id="referenceNumber" name="referenceNumber"> -->
@@ -63,6 +64,20 @@
   </main>
 
   <script>
+window.onload = function() {
+  const today = new Date();
+  
+  // Extract day, month, and year
+  const day = String(today.getDate()).padStart(2, '0');
+  const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+  const year = today.getFullYear();
+  
+  // Format the date as DD/MM/YYYY
+  const formattedDate = `${day}/${month}/${year}`;
+  document.getElementById('today').value = formattedDate;
+};
+
+
     var inputs = document.querySelectorAll('input[type=text], input[type=email]');
     for (i = 0; i < inputs.length; i++) {
       var inputEl = inputs[i];
@@ -111,21 +126,7 @@
         }
       }
     }
-    // Generate random reference number
-    // function generateReferenceNumber() {
-    //   const prefix = 'RIOCSA';
-    //   const length = 12 - prefix.length;
-    //   let referenceNumber = prefix;
 
-    //   while (referenceNumber.length < 12) {
-    //     referenceNumber += Math.random().toString(36).substring(2, 3);
-    //   }
-
-    //   return referenceNumber.toUpperCase();
-    // }
-
-    // // Set the value of the hidden input field
-    // document.getElementById('referenceNumber').value = generateReferenceNumber();
   </script>
 </body>
 
