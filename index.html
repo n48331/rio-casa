@@ -57,7 +57,7 @@
           <input class="text-body" id="checkout" name="checkout" type="date" required>
         </span>
       </div>
-      <input type="hidden" id="referenceNumber" name="referenceNumber">
+      <!-- <input type="hidden" id="referenceNumber" name="referenceNumber"> -->
       <input class="text-small-uppercase" id="submit" type="submit" value="Generate">
     </form>
   </main>
@@ -112,20 +112,20 @@
       }
     }
     // Generate random reference number
-    function generateReferenceNumber() {
-      const prefix = 'RIOCSA';
-      const length = 12 - prefix.length;
-      let referenceNumber = prefix;
+    // function generateReferenceNumber() {
+    //   const prefix = 'RIOCSA';
+    //   const length = 12 - prefix.length;
+    //   let referenceNumber = prefix;
 
-      while (referenceNumber.length < 12) {
-        referenceNumber += Math.random().toString(36).substring(2, 3);
-      }
+    //   while (referenceNumber.length < 12) {
+    //     referenceNumber += Math.random().toString(36).substring(2, 3);
+    //   }
 
-      return referenceNumber.toUpperCase();
-    }
+    //   return referenceNumber.toUpperCase();
+    // }
 
-    // Set the value of the hidden input field
-    document.getElementById('referenceNumber').value = generateReferenceNumber();
+    // // Set the value of the hidden input field
+    // document.getElementById('referenceNumber').value = generateReferenceNumber();
   </script>
 </body>
 

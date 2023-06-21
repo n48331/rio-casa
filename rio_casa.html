@@ -103,12 +103,13 @@
     const balance = urlParams.get('balance');
     const checkin = urlParams.get('checkin');
     const checkout = urlParams.get('checkout');
-    const referenceNumber = urlParams.get('referenceNumber');
+    const contact = urlParams.get('contact');
+
 
     // Update the content with the form data
     document.getElementById('amount').textContent = '₹' + amount;
     document.getElementById('name').textContent = name;
-    document.getElementById('ref').textContent = referenceNumber;
+    document.getElementById('ref').textContent = 'RIOCSA'+contact;
     document.getElementById('balamt').textContent = '₹' + balance;
     document.getElementById('checkin').textContent = formatDate(checkin);
     document.getElementById('checkout').textContent = formatDate(checkout)
