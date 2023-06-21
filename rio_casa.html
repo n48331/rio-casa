@@ -36,10 +36,12 @@
       font-size: 20px;
       margin: 1rem 0;
     }
-.dates>p{
-  margin: .5rem 0;
-  
-}
+
+    .dates>p {
+      margin: .5rem 0;
+
+    }
+
     p,
     h3 {
       font-family: Arial, Helvetica, sans-serif;
@@ -85,13 +87,14 @@
   <p>Our office duly received the said payment on <span id="date2"></span>. Your reference number is <strong
       id="ref"></strong>. Please keep this number because you will need it in case you want to dispute or question
     certain invoices. Kindly pay remaining amount of <strong id="balamt"></strong> at the time of check in. </p>
-<div class="dates">
-  <p>Check in : <b id="checkin"></b></p>
-<p>Check out : <b id="checkout"></b></p>
-</div>
+  <div class="dates">
+    <p>Check in : <b id="checkin"></b></p>
+    <p>Check out : <b id="checkout"></b></p>
+  </div>
   <p>We appreciate your prompt payment, and we hope to serve you again.</p>
   <p>Regards,</p>
-  <h3>RIO CASA</h3>
+  
+  <h3>RIO CASA <br>+91 7907505123</h3>
   <br><br><br><br><br>
   <input style="margin: 0;" class="text-small-uppercase" id="printBtn" type="submit" onclick="printPage()"
     value="Print" />
@@ -109,7 +112,7 @@
     // Update the content with the form data
     document.getElementById('amount').textContent = '₹' + amount;
     document.getElementById('name').textContent = name;
-    document.getElementById('ref').textContent = 'RIOCSA'+contact;
+    document.getElementById('ref').textContent = 'RIOCSA' + contact;
     document.getElementById('balamt').textContent = '₹' + balance;
     document.getElementById('checkin').textContent = formatDate(checkin);
     document.getElementById('checkout').textContent = formatDate(checkout)
@@ -130,20 +133,20 @@
       window.print();
     }
     function formatDate(dateString) {
-  var dateParts = dateString.split('-');
-  var year = dateParts[0];
-  var month = dateParts[1];
-  var day = dateParts[2];
+      var dateParts = dateString.split('-');
+      var year = dateParts[0];
+      var month = dateParts[1];
+      var day = dateParts[2];
 
-  // Format day, month, and year with two digits if necessary
-  day = day.length === 1 ? '0' + day : day;
-  month = month.length === 1 ? '0' + month : month;
+      // Format day, month, and year with two digits if necessary
+      day = day.length === 1 ? '0' + day : day;
+      month = month.length === 1 ? '0' + month : month;
 
-  // Concatenate formatted day, month, and year
-  var formattedDate = day + '/' + month + '/' + year;
-  
-  return formattedDate;
-}
+      // Concatenate formatted day, month, and year
+      var formattedDate = day + '/' + month + '/' + year;
+
+      return formattedDate;
+    }
   </script>
 </body>
 
