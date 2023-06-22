@@ -4,14 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./js/sheets.js"></script>
   <title>Document</title>
   <link rel="stylesheet" href="./css/style.css">
   <link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-
-
+  <div id="loader" class="loader"></div>
+  <a href="./customer_data.html" class="data"><img src="./images/customer.png" alt="Icon"></a>
   <main>
     <figure>
       <picture>
@@ -30,7 +31,7 @@
       <h2 class="text-headline">Rio Casa</h2>
       <h3 class="text-subheadline">Wayanad</h2>
     </div>
-    <form action="https://script.google.com/macros/s/AKfycbwgOWQcxVoKAEg30WLEjhQn_Xnnyo-wp6EzJL2X2vCJJLCAUWOccAJ8Tv-kfhBLiO4nBg/exec" method="get">
+    <form id="myForm" onsubmit="event.preventDefault(); sendData();">
       <input type="hidden" id="today" name="date">
       <span>
         <label for="name" class="text-small-uppercase">Name</label>
@@ -58,76 +59,11 @@
           <input class="text-body" id="checkout" name="Check out" type="date" required>
         </span>
       </div>
-      <!-- <input type="hidden" id="referenceNumber" name="referenceNumber"> -->
       <input class="text-small-uppercase" id="submit" type="submit" value="Generate">
     </form>
   </main>
 
-  <script>
-window.onload = function() {
-  const today = new Date();
-  
-  // Extract day, month, and year
-  const day = String(today.getDate()).padStart(2, '0');
-  const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
-  const year = today.getFullYear();
-  
-  // Format the date as DD/MM/YYYY
-  const formattedDate = `${day}/${month}/${year}`;
-  document.getElementById('today').value = formattedDate;
-};
-
-
-    var inputs = document.querySelectorAll('input[type=text], input[type=email]');
-    for (i = 0; i < inputs.length; i++) {
-      var inputEl = inputs[i];
-      if (inputEl.value.trim() !== '') {
-        inputEl.parentNode.classList.add('input--filled');
-      }
-      inputEl.addEventListener('focus', onFocus);
-      inputEl.addEventListener('blur', onBlur);
-    }
-
-    function onFocus(ev) {
-      ev.target.parentNode.classList.add('inputs--filled');
-    }
-
-    function onBlur(ev) {
-      if (ev.target.value.trim() === '') {
-        ev.target.parentNode.classList.remove('inputs--filled');
-      } else if (ev.target.checkValidity() == false) {
-        ev.target.parentNode.classList.add('inputs--invalid');
-        ev.target.addEventListener('input', liveValidation);
-      } else if (ev.target.checkValidity() == true) {
-        ev.target.parentNode.classList.remove('inputs--invalid');
-        ev.target.addEventListener('input', liveValidation);
-      }
-    }
-
-    function liveValidation(ev) {
-      if (ev.target.checkValidity() == false) {
-        ev.target.parentNode.classList.add('inputs--invalid');
-      } else {
-        ev.target.parentNode.classList.remove('inputs--invalid');
-      }
-    }
-
-    var submitBtn = document.querySelector('input[type=submit]');
-    submitBtn.addEventListener('click', onSubmit);
-
-    function onSubmit(ev) {
-      var inputsWrappers = ev.target.parentNode.querySelectorAll('span');
-      for (i = 0; i < inputsWrappers.length; i++) {
-        input = inputsWrappers[i].querySelector('input[type=text], input[type=email]');
-        if (input.checkValidity() == false) {
-          inputsWrappers[i].classList.add('inputs--invalid');
-        } else if (input.checkValidity() == true) {
-          inputsWrappers[i].classList.remove('inputs--invalid');
-        }
-      }
-    }
-
-  </script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>

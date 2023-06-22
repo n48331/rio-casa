@@ -1,5 +1,41 @@
 /* Structure */
+.loader {
+  position: absolute;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 99;
+  display: none;
+}
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.data{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  background-color: #161618;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 99;
+  border-radius: 50%;
+}
+.data>img{
+  width: 2.6rem;
+}
 img {
   height: auto;
   width: 100%;
