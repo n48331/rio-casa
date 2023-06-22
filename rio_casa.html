@@ -13,6 +13,28 @@
       background-color: #f9f6ed;
       position: relative;
     }
+    .nav{
+      
+    position: fixed;
+    display: flex;
+    gap: .5rem;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 99;
+  }
+  .nav-btn>img{
+    width: 2.2rem;
+  }
+  .nav-btn{
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: #161618;
+    
+  }
 
     .watermark {
       position: absolute;
@@ -67,9 +89,9 @@
         margin: 1.6cm;
         /* Adjust margin as needed */
       }
-
+      
       /* Hide the print button when printing */
-      #printBtn {
+      #printBtn,.nav {
         display: none;
       }
     }
@@ -98,6 +120,13 @@
   <br><br><br><br><br>
   <input style="margin: 0;" class="text-small-uppercase" id="printBtn" type="submit" onclick="printPage()"
     value="Print" />
+    <div class="nav">
+
+      <a class="nav-btn" href="/"
+         ><img src="./images/form.png" alt=""></a>
+      <a class="nav-btn" href="./customer_data.html"
+         ><img src="./images/customer.png" alt=""></a>
+    </div>
   <script>
     // Retrieve the form data from the URL parameters
     const urlParams = new URLSearchParams(window.location.search);
@@ -114,8 +143,8 @@
     document.getElementById('name').textContent = name;
     document.getElementById('ref').textContent = 'RIOCSA' + contact;
     document.getElementById('balamt').textContent = '₹' + balance;
-    document.getElementById('checkin').textContent = formatDate(checkin);
-    document.getElementById('checkout').textContent = formatDate(checkout)
+    document.getElementById('checkin').textContent = checkin
+    document.getElementById('checkout').textContent = checkout
     // Today
     const today = new Date();
 
